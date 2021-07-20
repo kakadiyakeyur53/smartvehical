@@ -4,9 +4,11 @@ import CurrentLocation from "./CurrentLocation";
 function App() {
   const {latitude,longitude} = CurrentLocation()
 
-  const [location,setlocation] = useState(CurrentLocation())
-console.log(location)
- 
+  const [location,setlocation] = useState({lat:'',long:''})
+  if(latitude !== location.lat || longitude !== location.long){
+    setlocation({lat:latitude,long:longitude})
+  }
+  console.log(location)
   return (
     <>
     <div>
